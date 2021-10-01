@@ -29,7 +29,7 @@ import * as colors from 'yoctocolors';
 console.log(colors.red('Yo!'));
 ```
 
-*This package does not do color support detection. Check out [`supports-color`](https://github.com/chalk/supports-color) if you need that.*
+*This package does not do color support detection. Check out [`supports-color`](https://github.com/chalk/supports-color) if you need that. Node.js will hopefully get [built-in support](https://github.com/nodejs/node/pull/40240) for color support detection at some point.*
 
 ## Styles
 
@@ -84,6 +84,17 @@ yoctocolors   132894792 ops/sec
 
 *Benchmark from [`nanocolors`](https://github.com/ai/nanocolors/blob/main/test/simple-benchmark.js)*
 
-## Why?
+## FAQ
+
+### Why?
 
 See [this discussion](https://github.com/babel/babel/pull/13783).
+
+### What is yocto?
+
+[It's the smallest official unit prefix in the metric system.](https://en.wikipedia.org/wiki/Yocto-) Much smaller than nano.
+
+## Related
+
+- [yoctodelay](https://github.com/sindresorhus/yoctodelay) - Delay a promise a given amount of time
+- [chalk](https://github.com/chalk/chalk) - Terminal string styling
