@@ -11,7 +11,7 @@ The only thing that matters is micro-benchmark performance! ⚡️
 - **4x faster and 5x smaller than [nanocolors](https://github.com/ai/nanocolors)**
 - Cat friendly
 - An additional color
-- Tree-shakeable but not stirred
+- Tree-shakeable, not stirred
 - Actively maintained (at least for another week)
 - No dependencies
 
@@ -28,6 +28,8 @@ import * as colors from 'yoctocolors';
 
 console.log(colors.red('Yo!'));
 ```
+
+*This package does not do color support detection. Check out [`supports-color`](https://github.com/chalk/supports-color) if you need that.*
 
 ## Styles
 
@@ -81,3 +83,7 @@ yoctocolors   132894792 ops/sec
 ```
 
 *Benchmark from [`nanocolors`](https://github.com/ai/nanocolors/blob/main/test/simple-benchmark.js)*
+
+## Why?
+
+See [this discussion](https://github.com/babel/babel/pull/13783).
