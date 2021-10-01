@@ -1,50 +1,23 @@
 {
 	"name": "yoctocolors",
 	"version": "0.1.1",
-	"description": "The smallest and fastest command-line coloring package on the internet. Trust me.",
+	"description": "",
 	"license": "MIT",
-	"repository": "sindresorhus/yoctocolors",
-	"funding": "https://github.com/sponsors/sindresorhus",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "https://sindresorhus.com"
-	},
 	"type": "module",
 	"exports": "./index.js",
 	"engines": {
 		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
-		"test": "xo && ava && tsd"
+		"test": "ava && tsd && xo"
 	},
 	"files": [
 		"index.js",
 		"index.d.ts"
 	],
-	"keywords": [
-		"color",
-		"colour",
-		"colors",
-		"terminal",
-		"console",
-		"cli",
-		"string",
-		"ansi",
-		"style",
-		"styles",
-		"tty",
-		"formatting",
-		"shell",
-		"xterm",
-		"log",
-		"logging",
-		"command-line",
-		"text"
-	],
 	"devDependencies": {
-		"ava": "^3.15.0",
-		"tsd": "^0.17.0",
-		"xo": "^0.44.0"
+		"ava": "3",
+		"tsd": "0",
+		"xo": "0"
 	}
 }
