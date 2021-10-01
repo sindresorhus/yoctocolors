@@ -1,32 +1,35 @@
 // Intentionally not using template literal for performance.
-const format = (startCode, endCode) => string => '\u001B[' + startCode + 'm' + string + '\u001B[' + endCode + 'm';
+const
+  fmt = endCode => startCode => string => '\u001B[' + startCode + 'm' + string + '\u001B[' + endCode + 'm',
+  fg = fmt(39),
+  bg = fmt(49);
 
-export const reset = format(0, 0);
-export const bold = format(1, 22);
-export const dim = format(2, 22);
-export const italic = format(3, 23);
-export const underline = format(4, 24);
-export const overline = format(53, 55);
-export const inverse = format(7, 27);
-export const hidden = format(8, 28);
-export const strikethrough = format(9, 29);
+export const reset = fmt(0)(0);
+export const bold = fmt(22)(1);
+export const dim = fmt(22)(2);
+export const italic = fmt(23)(3);
+export const underline = fmt(24)(4);
+export const overline = fmt(55)(53);
+export const inverse = fmt(27)(7);
+export const hidden = fmt(28)(8);
+export const strikethrough = fmt(29)(9);
 
-export const black = format(30, 39);
-export const red = format(31, 39);
-export const green = format(32, 39);
-export const yellow = format(33, 39);
-export const blue = format(34, 39);
-export const magenta = format(35, 39);
-export const cyan = format(36, 39);
-export const white = format(37, 39);
-export const gray = format(90, 39);
+export const black = fg(30);
+export const red = fg(31);
+export const green = fg(32);
+export const yellow = fg(33);
+export const blue = fg(34);
+export const magenta = fg(35);
+export const cyan = fg(36);
+export const white = fg(37);
+export const gray = fg(90);
 
-export const bgBlack = format(40, 49);
-export const bgRed = format(41, 49);
-export const bgGreen = format(42, 49);
-export const bgYellow = format(43, 49);
-export const bgBlue = format(44, 49);
-export const bgMagenta = format(45, 49);
-export const bgCyan = format(46, 49);
-export const bgWhite = format(47, 49);
-export const bgGray = format(100, 49);
+export const bgBlack = bg(40);
+export const bgRed = bg(41);
+export const bgGreen = bg(42);
+export const bgYellow = bg(43);
+export const bgBlue = bg(44);
+export const bgMagenta = bg(45);
+export const bgCyan = bg(46);
+export const bgWhite = bg(47);
+export const bgGray = bg(100);
