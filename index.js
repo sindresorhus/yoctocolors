@@ -1,32 +1,30 @@
-// Intentionally not using template literal for performance.
-const format = (startCode, endCode) => string => '\u001B[' + startCode + 'm' + string + '\u001B[' + endCode + 'm';
+export const
+reset = function(s) { return "\u001B[0m" + s + "\u001B[0m" },
+bold = function(s) { return "\u001B[1m" + s + "\u001B[22m" },
+dim = function(s) { return "\u001B[2m" + s + "\u001B[22m" },
+italic = function(s) { return "\u001B[3m" + s + "\u001B[23m" },
+underline = function(s) { return "\u001B[4m" + s + "\u001B[24m" },
+overline = function(s) { return "\u001B[53m" + s + "\u001B[55m" },
+inverse = function(s) { return "\u001B[7m" + s + "\u001B[27m" },
+hidden = function(s) { return "\u001B[8m" + s + "\u001B[28m" },
+strikethrough = function(s) { return "\u001B[9m" + s + "\u001B[29m" },
 
-export const reset = format(0, 0);
-export const bold = format(1, 22);
-export const dim = format(2, 22);
-export const italic = format(3, 23);
-export const underline = format(4, 24);
-export const overline = format(53, 55);
-export const inverse = format(7, 27);
-export const hidden = format(8, 28);
-export const strikethrough = format(9, 29);
+black = function(s) { return "\u001B[30m" + s + "\u001B[39m" },
+red = function(s) { return "\u001B[31m" + s + "\u001B[39m" },
+green = function(s) { return "\u001B[32m" + s + "\u001B[39m" },
+yellow = function(s) { return "\u001B[33m" + s + "\u001B[39m" },
+blue = function(s) { return "\u001B[34m" + s + "\u001B[39m" },
+magenta = function(s) { return "\u001B[35m" + s + "\u001B[39m" },
+cyan = function(s) { return "\u001B[36m" + s + "\u001B[39m" },
+white = function(s) { return "\u001B[37m" + s + "\u001B[39m" },
+gray = function(s) { return "\u001B[90m" + s + "\u001B[39m" },
 
-export const black = format(30, 39);
-export const red = format(31, 39);
-export const green = format(32, 39);
-export const yellow = format(33, 39);
-export const blue = format(34, 39);
-export const magenta = format(35, 39);
-export const cyan = format(36, 39);
-export const white = format(37, 39);
-export const gray = format(90, 39);
-
-export const bgBlack = format(40, 49);
-export const bgRed = format(41, 49);
-export const bgGreen = format(42, 49);
-export const bgYellow = format(43, 49);
-export const bgBlue = format(44, 49);
-export const bgMagenta = format(45, 49);
-export const bgCyan = format(46, 49);
-export const bgWhite = format(47, 49);
-export const bgGray = format(100, 49);
+bgBlack = function(s) { return "\u001B[40m" + s + "\u001B[49m" },
+bgRed = function(s) { return "\u001B[41m" + s + "\u001B[49m" },
+bgGreen = function(s) { return "\u001B[42m" + s + "\u001B[49m" },
+bgYellow = function(s) { return "\u001B[43m" + s + "\u001B[49m" },
+bgBlue = function(s) { return "\u001B[44m" + s + "\u001B[49m" },
+bgMagenta = function(s) { return "\u001B[45m" + s + "\u001B[49m" },
+bgCyan = function(s) { return "\u001B[46m" + s + "\u001B[49m" },
+bgWhite = function(s) { return "\u001B[47m" + s + "\u001B[49m" },
+bgGray = function(s) { return "\u001B[100m" + s + "\u001B[49m" };
