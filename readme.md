@@ -29,6 +29,8 @@ import * as colors from 'yoctocolors';
 console.log(colors.red('Yo!'));
 ```
 
+*This package support basic color detection. Node.js will hopefully get [better support](https://github.com/nodejs/node/pull/40240) for color support detection at some point.*
+
 ## Styles
 
 ### Modifiers
