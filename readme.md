@@ -29,8 +29,6 @@ import * as colors from 'yoctocolors';
 console.log(colors.red('Yo!'));
 ```
 
-*This package does not do color support detection. Check out [`supports-color`](https://github.com/chalk/supports-color) if you need that. Node.js will hopefully get [built-in support](https://github.com/nodejs/node/pull/40240) for color support detection at some point.*
-
 ## Styles
 
 ### Modifiers
