@@ -1,5 +1,9 @@
+import tty from 'node:tty';
+
+const hasColors = tty.WriteStream.prototype.hasColors();
+
 // Intentionally not using template literal for performance.
-const format = (startCode, endCode) => string => '\u001B[' + startCode + 'm' + string + '\u001B[' + endCode + 'm';
+const format = (startCode, endCode) => hasColors ? string => '\u001B[' + startCode + 'm' + string + '\u001B[' + endCode + 'm' : string => string;
 
 export const reset = format(0, 0);
 export const bold = format(1, 22);
