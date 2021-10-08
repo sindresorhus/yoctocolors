@@ -29,7 +29,7 @@ import * as colors from 'yoctocolors';
 console.log(colors.red('Yo!'));
 ```
 
-*This package supports basic color detection. Node.js will hopefully get [better support](https://github.com/nodejs/node/pull/40240) for color support detection at some point.*
+*This package supports [basic color detection](https://nodejs.org/docs/latest-v12.x/api/tty.html#tty_writestream_hascolors_count_env). TODO: Use [a better method](https://github.com/nodejs/node/pull/40240) when it's added to Node.js.*
 
 ## Styles
 
