@@ -16,7 +16,7 @@
 		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
-		"test": "xo && FORCE_COLOR=2 ava && tsd"
+		"test": "xo && ava && tsd"
 	},
 	"files": [
 		"index.js",
@@ -46,5 +46,10 @@
 		"ava": "^3.15.0",
 		"tsd": "^0.17.0",
 		"xo": "^0.44.0"
+	},
+	"ava": {
+		"environmentVariables": {
+			"NO_COLOR": "2"
+		}
 	}
 }
