@@ -29,7 +29,7 @@ import * as colors from 'yoctocolors';
 console.log(colors.red('Yo!'));
 ```
 
-*This package does not do color support detection. Check out [`supports-color`](https://github.com/chalk/supports-color) if you need that. Node.js will hopefully get [built-in support](https://github.com/nodejs/node/pull/40240) for color support detection at some point.*
+*This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to `1` and can be forcefully disabled by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value. [More info.](https://nodejs.org/api/tty.html#writestreamgetcolordepthenv)*
 
 ## Styles
 
