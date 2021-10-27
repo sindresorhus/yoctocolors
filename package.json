@@ -49,7 +49,7 @@
 	},
 	"ava": {
 		"environmentVariables": {
-			"NO_COLOR": "2"
+			"FORCE_COLOR": "2"
 		}
 	}
 }
