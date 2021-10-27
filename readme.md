@@ -29,7 +29,7 @@ import * as colors from 'yoctocolors';
 console.log(colors.red('Yo!'));
 ```
 
-*This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to either ` `, `1`, `true`, `2` or `3` and can be forcefully disabled by setting it to a different value or by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value.*
+*This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to `1` and can be forcefully disabled by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value. [More info.](https://nodejs.org/api/tty.html#writestreamgetcolordepthenv)*
 
 ## Styles
 
