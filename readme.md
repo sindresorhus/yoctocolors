@@ -75,14 +75,24 @@ Yes
 
 ## Benchmark
 
-```
-❯ ./test/simple-benchmark.js
-nanocolors    31508276 ops/sec
-picocolors    32524769 ops/sec
-yoctocolors   132894792 ops/sec
+```sh
+$ ./benchmark.js
+┌─────────┬────────────────┬─────────────┐
+│ (index) │    library     │   ops/sec   │
+├─────────┼────────────────┼─────────────┤
+│    0    │ 'yoctocolors'  │ '8,771,930' │
+│    1    │  'nanocolors'  │ '6,896,552' │
+│    2    │  'colorette'   │ '6,172,840' │
+│    3    │  'picocolors'  │ '6,060,606' │
+│    4    │ 'kleur/colors' │ '5,263,158' │
+│    5    │    'chalk'     │ '4,484,305' │
+│    6    │    'kleur'     │ '3,731,343' │
+│    7    │ 'ansi-colors'  │ '1,283,697' │
+│    8    │  'cli-color'   │  '393,236'  │
+└─────────┴────────────────┴─────────────┘
 ```
 
-*Benchmark from [`nanocolors`](https://github.com/ai/nanocolors/blob/main/test/simple-benchmark.js)*
+*See [benchmark.js](./benchmark.js).*
 
 ## FAQ
 
