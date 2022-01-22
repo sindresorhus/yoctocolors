@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import {Suite} from '@jonahsnider/benchmark';
 import ansi from 'ansi-colors';
 import chalk from 'chalk';
