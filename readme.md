@@ -4,12 +4,13 @@
 
 *Check out [Chalk](https://github.com/chalk/chalk) if you want something more mature and comprehensive.*
 
-## Features
+## Highlights
 
-- 4x faster and 5x smaller than [nanocolors](https://github.com/ai/nanocolors)
+- Tiny
+- Fast
 - Tree-shakeable
-- Actively maintained
 - No dependencies
+- Actively maintained
 
 ## Install
 
@@ -91,10 +92,6 @@ $ ./benchmark.js
 *See [benchmark.js](benchmark.js).*
 
 ## FAQ
-
-### Why?
-
-See [this discussion](https://github.com/babel/babel/pull/13783).
 
 ### What is yocto?
 
