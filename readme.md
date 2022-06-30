@@ -1,18 +1,14 @@
 <sup>yoctocolors 🌈</sup>
 
-> The smallest and fastest command-line coloring package on the internet. Trust me.
-
-The only thing that matters is micro-benchmark performance! ⚡️
+> The smallest and fastest command-line coloring package on the internet
 
 *Check out [Chalk](https://github.com/chalk/chalk) if you want something more mature and comprehensive.*
 
 ## Features
 
-- **4x faster and 5x smaller than [nanocolors](https://github.com/ai/nanocolors)**
-- Cat friendly
-- An additional color
-- Tree-shakeable, not stirred
-- Actively maintained (at least for another week)
+- 4x faster and 5x smaller than [nanocolors](https://github.com/ai/nanocolors)
+- Tree-shakeable
+- Actively maintained
 - No dependencies
 
 ## Install
@@ -92,7 +88,7 @@ $ ./benchmark.js
 └─────────┴────────────────┴─────────────┘
 ```
 
-*See [benchmark.js](./benchmark.js).*
+*See [benchmark.js](benchmark.js).*
 
 ## FAQ
 

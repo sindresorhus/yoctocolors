@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import cliColor from 'cli-color';
 import * as colorette from 'colorette';
 import kleur from 'kleur';
-// eslint-disable-next-line node/file-extension-in-import
+// eslint-disable-next-line n/file-extension-in-import
 import * as kleurColors from 'kleur/colors';
 import * as nanocolors from 'nanocolors';
 import picocolors from 'picocolors';
