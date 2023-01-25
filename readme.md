@@ -95,7 +95,7 @@ $ ./benchmark.js
 
 ### What is yocto?
 
-[It's the smallest official unit prefix in the metric system.](https://en.wikipedia.org/wiki/Yocto-) Much smaller than nano.
+[It was the smallest official unit prefix in the metric system until 2022.](https://en.wikipedia.org/wiki/Yocto-) Much smaller than nano.
 
 ## Related
 
