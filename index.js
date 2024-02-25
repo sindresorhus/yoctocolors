@@ -1,5 +1,6 @@
 import tty from 'node:tty';
 
+// eslint-disable-next-line no-warning-comments
 // TODO: Use a better method when it's added to Node.js (https://github.com/nodejs/node/pull/40240)
 const hasColors = tty.WriteStream.prototype.hasColors();
 
