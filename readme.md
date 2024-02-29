@@ -53,6 +53,13 @@ console.log(colors.red('Yo!'));
 - `cyan`
 - `white`
 - `gray`
+- `redBright`
+- `greenBright`
+- `yellowBright`
+- `blueBright`
+- `magentaBright`
+- `cyanBright`
+- `whiteBright`
 
 ### Background colors
 
@@ -65,6 +72,13 @@ console.log(colors.red('Yo!'));
 - `bgCyan`
 - `bgWhite`
 - `bgGray`
+- `bgRedBright`
+- `bgGreenBright`
+- `bgYellowBright`
+- `bgBlueBright`
+- `bgMagentaBright`
+- `bgCyanBright`
+- `bgWhiteBright`
 
 ## Prior art
 

@@ -36,3 +36,19 @@ export const bgMagenta = format(45, 49);
 export const bgCyan = format(46, 49);
 export const bgWhite = format(47, 49);
 export const bgGray = format(100, 49);
+
+export const redBright = format(91, 39);
+export const greenBright = format(92, 39);
+export const yellowBright = format(93, 39);
+export const blueBright = format(94, 39);
+export const magentaBright = format(95, 39);
+export const cyanBright = format(96, 39);
+export const whiteBright = format(97, 39);
+
+export const bgRedBright = format(101, 49);
+export const bgGreenBright = format(102, 49);
+export const bgYellowBright = format(103, 49);
+export const bgBlueBright = format(104, 49);
+export const bgMagentaBright = format(105, 49);
+export const bgCyanBright = format(106, 49);
+export const bgWhiteBright = format(107, 49);
