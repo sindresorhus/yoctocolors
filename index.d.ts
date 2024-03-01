@@ -29,3 +29,19 @@ export const bgMagenta: Format;
 export const bgCyan: Format;
 export const bgWhite: Format;
 export const bgGray: Format;
+
+export const redBright: Format;
+export const greenBright: Format;
+export const yellowBright: Format;
+export const blueBright: Format;
+export const magentaBright: Format;
+export const cyanBright: Format;
+export const whiteBright: Format;
+
+export const bgRedBright: Format;
+export const bgGreenBright: Format;
+export const bgYellowBright: Format;
+export const bgBlueBright: Format;
+export const bgMagentaBright: Format;
+export const bgCyanBright: Format;
+export const bgWhiteBright: Format;
