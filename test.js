@@ -59,5 +59,5 @@ test('Is noop when no colors are supported', async t => {
 
 test('Nested colors are handled properly', t => {
 	const redText = colors.red(`Error: ${colors.yellow('Warning')} continues in red`);
-	t.is(redText, '\u001B[31mError: \u001B[33mWarning\u001B[39m\u001B[31m continues in red\u001B[39m');
+	t.is(redText, '\u001B[31mError: \u001B[33mWarning\u001B[31m continues in red\u001B[39m');
 });

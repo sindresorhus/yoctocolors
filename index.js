@@ -11,7 +11,6 @@ const format = (open, close) => {
 
 	const openCode = `\u001B[${open}m`;
 	const closeCode = `\u001B[${close}m`;
-	const resetCode = `${closeCode}${openCode}`;
 
 	return input => {
 		const string = input + ''; // eslint-disable-line no-implicit-coercion -- This is faster.
@@ -31,7 +30,7 @@ const format = (open, close) => {
 		let lastIndex = 0;
 
 		while (index !== -1) {
-			result += string.slice(lastIndex, index) + resetCode;
+			result += string.slice(lastIndex, index) + openCode;
 			lastIndex = index + closeCode.length;
 			index = string.indexOf(closeCode, lastIndex);
 		}
