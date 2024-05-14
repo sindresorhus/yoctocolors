@@ -22,47 +22,47 @@ suite
 	.addTest('yoctocolors', () => {
 		out = yoctocolors.red('Add plugin to use time limit');
 		out = yoctocolors.green('Add plugin to use time limit');
-		out = yoctocolors.blue('Add plugin to use time limit');
+		out = yoctocolors.blue(`Add plugin to ${yoctocolors.cyan('use')} time limit`);
 	})
 	.addTest('cli-color', () => {
 		out = cliColor.red('Add plugin to use time limit');
 		out = cliColor.green('Add plugin to use time limit');
-		out = cliColor.blue('Add plugin to use time limit');
+		out = cliColor.blue(`Add plugin to ${cliColor.cyan('use')} time limit`);
 	})
 	.addTest('ansi-colors', () => {
 		out = ansi.red('Add plugin to use time limit');
 		out = ansi.green('Add plugin to use time limit');
-		out = ansi.blue('Add plugin to use time limit');
+		out = ansi.blue(`Add plugin to ${ansi.cyan('use')} time limit`);
 	})
 	.addTest('chalk', () => {
 		out = chalk.red('Add plugin to use time limit');
 		out = chalk.green('Add plugin to use time limit');
-		out = chalk.blue('Add plugin to use time limit');
+		out = chalk.blue(`Add plugin to ${chalk.cyan('use')} time limit`);
 	})
 	.addTest('kleur', () => {
 		out = kleur.red('Add plugin to use time limit');
 		out = kleur.green('Add plugin to use time limit');
-		out = kleur.blue('Add plugin to use time limit');
+		out = kleur.blue(`Add plugin to ${kleur.cyan('use')} time limit`);
 	})
 	.addTest('kleur/colors', () => {
 		out = kleurColors.red('Add plugin to use time limit');
 		out = kleurColors.green('Add plugin to use time limit');
-		out = kleurColors.blue('Add plugin to use time limit');
+		out = kleurColors.blue(`Add plugin to ${kleurColors.cyan('use')} time limit`);
 	})
 	.addTest('colorette', () => {
 		out = colorette.red('Add plugin to use time limit');
 		out = colorette.green('Add plugin to use time limit');
-		out = colorette.blue('Add plugin to use time limit');
+		out = colorette.blue(`Add plugin to ${colorette.cyan('use')} time limit`);
 	})
 	.addTest('nanocolors', () => {
 		out = nanocolors.red('Add plugin to use time limit');
 		out = nanocolors.green('Add plugin to use time limit');
-		out = nanocolors.blue('Add plugin to use time limit');
+		out = nanocolors.blue(`Add plugin to ${nanocolors.cyan('use')} time limit`);
 	})
 	.addTest('picocolors', () => {
 		out = picocolors.red('Add plugin to use time limit');
 		out = picocolors.green('Add plugin to use time limit');
-		out = picocolors.blue('Add plugin to use time limit');
+		out = picocolors.blue(`Add plugin to ${picocolors.cyan('use')} time limit`);
 	});
 
 const results = await suite.run();

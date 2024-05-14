@@ -56,3 +56,8 @@ test('Is noop when no colors are supported', async t => {
 	const {stdout} = await pExecFile('node', ['fixture.js'], {env: {...env, FORCE_COLOR: '0'}});
 	t.is(stdout, 'foo\n');
 });
+
+test('Nested colors are handled properly', t => {
+	const redText = colors.red(`Error: ${colors.yellow('Warning')} continues in red`);
+	t.is(redText, '\u001B[31mError: \u001B[33mWarning\u001B[39m\u001B[31m continues in red\u001B[39m');
+});

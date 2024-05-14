@@ -8,6 +8,7 @@
 
 - Tiny
 - Fast
+- Handles nested colors
 - Tree-shakeable
 - No dependencies
 - Actively maintained
@@ -24,6 +25,8 @@ npm install yoctocolors
 import * as colors from 'yoctocolors';
 
 console.log(colors.red('Yo!'));
+
+console.log(colors.blue(`Welcome to the ${colors.green('yoctocolors')} package!`));
 ```
 
 *This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to `1` and can be forcefully disabled by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value. [More info.](https://nodejs.org/api/tty.html#writestreamgetcolordepthenv)*
@@ -89,17 +92,17 @@ Yes
 ```sh
 $ ./benchmark.js
 ┌─────────┬────────────────┬─────────────┐
-│ (index) │    library     │   ops/sec   │
+│ (index) │ library        │ ops/sec     │
 ├─────────┼────────────────┼─────────────┤
-│    0    │ 'yoctocolors'  │ '8,928,571' │
-│    1    │  'nanocolors'  │ '8,000,000' │
-│    2    │  'picocolors'  │ '7,751,938' │
-│    3    │  'colorette'   │ '6,097,561' │
-│    4    │ 'kleur/colors' │ '5,882,353' │
-│    5    │    'chalk'     │ '5,263,158' │
-│    6    │    'kleur'     │ '4,115,226' │
-│    7    │ 'ansi-colors'  │ '1,288,660' │
-│    8    │  'cli-color'   │  '377,786'  │
+│ 0       │ 'yoctocolors'  │ '8,000,000' │
+│ 1       │ 'colorette'    │ '8,000,000' │
+│ 2       │ 'picocolors'   │ '8,000,000' │
+│ 3       │ 'nanocolors'   │ '5,988,024' │
+│ 4       │ 'chalk'        │ '4,807,692' │
+│ 5       │ 'kleur/colors' │ '4,807,692' │
+│ 6       │ 'kleur'        │ '4,784,689' │
+│ 7       │ 'ansi-colors'  │ '2,178,649' │
+│ 8       │ 'cli-color'    │ '585,138'   │
 └─────────┴────────────────┴─────────────┘
 ```
 

@@ -4,8 +4,43 @@ import tty from 'node:tty';
 // TODO: Use a better method when it's added to Node.js (https://github.com/nodejs/node/pull/40240)
 const hasColors = tty.WriteStream.prototype.hasColors();
 
-// Intentionally not using template literal for performance.
-const format = (startCode, endCode) => hasColors ? string => '\u001B[' + startCode + 'm' + string + '\u001B[' + endCode + 'm' : string => string;
+const format = (open, close) => {
+	if (!hasColors) {
+		return input => input;
+	}
+
+	const openCode = `\u001B[${open}m`;
+	const closeCode = `\u001B[${close}m`;
+	const resetCode = `${closeCode}${openCode}`;
+
+	return input => {
+		const string = input + ''; // eslint-disable-line no-implicit-coercion -- This is faster.
+		let index = string.indexOf(closeCode);
+
+		if (index === -1) {
+			// Note: Intentionally not using string interpolation for performance reasons.
+			return openCode + string + closeCode;
+		}
+
+		// Handle nested colors.
+
+		// We could have done this, but it's too slow (as of Node.js 22).
+		// return openCode + string.replaceAll(closeCode, resetCode) + closeCode;
+
+		let result = openCode;
+		let lastIndex = 0;
+
+		while (index !== -1) {
+			result += string.slice(lastIndex, index) + resetCode;
+			lastIndex = index + closeCode.length;
+			index = string.indexOf(closeCode, lastIndex);
+		}
+
+		result += string.slice(lastIndex) + closeCode;
+
+		return result;
+	};
+};
 
 export const reset = format(0, 0);
 export const bold = format(1, 22);
