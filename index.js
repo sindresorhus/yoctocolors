@@ -24,7 +24,7 @@ const format = (open, close) => {
 		// Handle nested colors.
 
 		// We could have done this, but it's too slow (as of Node.js 22).
-		// return openCode + string.replaceAll(closeCode, resetCode) + closeCode;
+		// return openCode + string.replaceAll(closeCode, openCode) + closeCode;
 
 		let result = openCode;
 		let lastIndex = 0;
