@@ -11,7 +11,6 @@ const format = (open, close) => {
 
 	const openCode = `\u001B[${open}m`;
 	const closeCode = `\u001B[${close}m`;
-	const resetCode = `${closeCode}${openCode}`;
 
 	return input => {
 		const string = input + ''; // eslint-disable-line no-implicit-coercion -- This is faster.
@@ -25,13 +24,13 @@ const format = (open, close) => {
 		// Handle nested colors.
 
 		// We could have done this, but it's too slow (as of Node.js 22).
-		// return openCode + string.replaceAll(closeCode, resetCode) + closeCode;
+		// return openCode + string.replaceAll(closeCode, openCode) + closeCode;
 
 		let result = openCode;
 		let lastIndex = 0;
 
 		while (index !== -1) {
-			result += string.slice(lastIndex, index) + resetCode;
+			result += string.slice(lastIndex, index) + openCode;
 			lastIndex = index + closeCode.length;
 			index = string.indexOf(closeCode, lastIndex);
 		}
