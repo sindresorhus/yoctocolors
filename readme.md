@@ -15,8 +15,16 @@
 
 ## Install
 
+ESM:
+
 ```sh
 npm install yoctocolors
+```
+
+Or CommonJS:
+
+```sh
+npm install yoctocolors-cjs
 ```
 
 ## Usage
