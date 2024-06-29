@@ -1,7 +1,7 @@
 {
-	"name": "yoctocolors",
+	"name": "yoctocolors-cjs",
 	"version": "2.1.0",
-	"description": "The smallest and fastest command-line coloring package on the internet",
+	"description": "CommonJS version - The smallest and fastest command-line coloring package on the internet",
 	"license": "MIT",
 	"repository": "sindresorhus/yoctocolors",
 	"funding": "https://github.com/sponsors/sindresorhus",
@@ -10,11 +10,9 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
-	"type": "module",
-	"exports": {
-		"types": "./index.d.ts",
-		"default": "./index.js"
-	},
+	"type": "commonjs",
+	"main": "./index.js",
+	"types": "./index.d.ts",
 	"sideEffects": false,
 	"engines": {
 		"node": ">=18"
