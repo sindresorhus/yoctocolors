@@ -2,6 +2,7 @@ import {execFile} from 'node:child_process';
 import {env} from 'node:process';
 import {promisify} from 'node:util';
 import test from 'ava';
+import colorsDefaultExport from './index.js';
 import * as colors from './index.js';
 
 const pExecFile = promisify(execFile);
@@ -60,4 +61,8 @@ test('Is noop when no colors are supported', async t => {
 test('Nested colors are handled properly', t => {
 	const redText = colors.red(`Error: ${colors.yellow('Warning')} continues in red`);
 	t.is(redText, '\u001B[31mError: \u001B[33mWarning\u001B[31m continues in red\u001B[39m');
+});
+
+test('Default export', t => {
+	t.is(colorsDefaultExport.red('Error'), '\u001B[31mError\u001B[39m');
 });

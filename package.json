@@ -24,7 +24,9 @@
 	},
 	"files": [
 		"index.js",
-		"index.d.ts"
+		"index.d.ts",
+		"base.js",
+		"base.d.ts"
 	],
 	"keywords": [
 		"color",

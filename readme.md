@@ -22,11 +22,21 @@ npm install yoctocolors
 ## Usage
 
 ```js
-import * as colors from 'yoctocolors';
+import colors from 'yoctocolors';
 
 console.log(colors.red('Yo!'));
 
 console.log(colors.blue(`Welcome to the ${colors.green('yoctocolors')} package!`));
+```
+
+You can also import colors as named imports:
+
+```js
+import {red, blue, green} from 'yoctocolors';
+
+console.log(red('Yo!'));
+
+console.log(blue(`Welcome to the ${green('yoctocolors')} package!`));
 ```
 
 *This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to `1` and can be forcefully disabled by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value. [More info.](https://nodejs.org/api/tty.html#writestreamgetcolordepthenv)*
