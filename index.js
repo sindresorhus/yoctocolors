@@ -2,7 +2,8 @@ const tty = require('node:tty');
 
 // eslint-disable-next-line no-warning-comments
 // TODO: Use a better method when it's added to Node.js (https://github.com/nodejs/node/pull/40240)
-const hasColors = tty.WriteStream.prototype.hasColors();
+// Lots of optionals here to support Deno.
+const hasColors = tty?.WriteStream?.prototype?.hasColors?.() ?? false;
 
 const format = (open, close) => {
 	if (!hasColors) {
