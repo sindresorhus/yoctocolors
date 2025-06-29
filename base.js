@@ -18,8 +18,8 @@ const color = (open, close, input) => {
 	// We could have done this, but it"s too slow (as of Node.js 22).
 	// return open + string.replaceAll(close, open) + close;
 
-	let result = open,
-		lastIndex = 0;
+	let result = open;
+	let lastIndex = 0;
 
 	while (index !== -1) {
 		result += string.slice(lastIndex, index) + open;
@@ -32,53 +32,51 @@ const color = (open, close, input) => {
 };
 
 // Don't coloring when your terminal is NOT support
-const format = (open, close) => {
-	return (input) => (!hasColors ? input : color(open, close, input));
-};
+const format = (open, close) => input => hasColors ? color(open, close, input) : input;
 
 // Wrap ANSI in parameters
-export const reset = format('\x1b[0m', '\x1b[0m');
-export const bold = format('\x1b[1m', '\x1b[22m');
-export const dim = format('\x1b[2m', '\x1b[22m');
-export const italic = format('\x1b[3m', '\x1b[23m');
-export const underline = format('\x1b[4m', '\x1b[24m');
-export const overline = format('\x1b[53m', '\x1b[55m');
-export const inverse = format('\x1b[7m', '\x1b[27m');
-export const hidden = format('\x1b[8m', '\x1b[28m');
-export const strikethrough = format('\x1b[9m', '\x1b[29m');
+export const reset = format('\u001B[0m', '\u001B[0m');
+export const bold = format('\u001B[1m', '\u001B[22m');
+export const dim = format('\u001B[2m', '\u001B[22m');
+export const italic = format('\u001B[3m', '\u001B[23m');
+export const underline = format('\u001B[4m', '\u001B[24m');
+export const overline = format('\u001B[53m', '\u001B[55m');
+export const inverse = format('\u001B[7m', '\u001B[27m');
+export const hidden = format('\u001B[8m', '\u001B[28m');
+export const strikethrough = format('\u001B[9m', '\u001B[29m');
 
-export const black = format('\x1b[30m', '\x1b[39m');
-export const red = format('\x1b[31m', '\x1b[39m');
-export const green = format('\x1b[32m', '\x1b[39m');
-export const yellow = format('\x1b[33m', '\x1b[39m');
-export const blue = format('\x1b[34m', '\x1b[39m');
-export const magenta = format('\x1b[35m', '\x1b[39m');
-export const cyan = format('\x1b[36m', '\x1b[39m');
-export const white = format('\x1b[37m', '\x1b[39m');
-export const gray = format('\x1b[90m', '\x1b[39m');
+export const black = format('\u001B[30m', '\u001B[39m');
+export const red = format('\u001B[31m', '\u001B[39m');
+export const green = format('\u001B[32m', '\u001B[39m');
+export const yellow = format('\u001B[33m', '\u001B[39m');
+export const blue = format('\u001B[34m', '\u001B[39m');
+export const magenta = format('\u001B[35m', '\u001B[39m');
+export const cyan = format('\u001B[36m', '\u001B[39m');
+export const white = format('\u001B[37m', '\u001B[39m');
+export const gray = format('\u001B[90m', '\u001B[39m');
 
-export const bgBlack = format('\x1b[40m', '\x1b[49m');
-export const bgRed = format('\x1b[41m', '\x1b[49m');
-export const bgGreen = format('\x1b[42m', '\x1b[49m');
-export const bgYellow = format('\x1b[43m', '\x1b[49m');
-export const bgBlue = format('\x1b[44m', '\x1b[49m');
-export const bgMagenta = format('\x1b[45m', '\x1b[49m');
-export const bgCyan = format('\x1b[46m', '\x1b[49m');
-export const bgWhite = format('\x1b[47m', '\x1b[49m');
-export const bgGray = format('\x1b[100m', '\x1b[49m');
+export const bgBlack = format('\u001B[40m', '\u001B[49m');
+export const bgRed = format('\u001B[41m', '\u001B[49m');
+export const bgGreen = format('\u001B[42m', '\u001B[49m');
+export const bgYellow = format('\u001B[43m', '\u001B[49m');
+export const bgBlue = format('\u001B[44m', '\u001B[49m');
+export const bgMagenta = format('\u001B[45m', '\u001B[49m');
+export const bgCyan = format('\u001B[46m', '\u001B[49m');
+export const bgWhite = format('\u001B[47m', '\u001B[49m');
+export const bgGray = format('\u001B[100m', '\u001B[49m');
 
-export const redBright = format('\x1b[91m', '\x1b[39m');
-export const greenBright = format('\x1b[92m', '\x1b[39m');
-export const yellowBright = format('\x1b[93m', '\x1b[39m');
-export const blueBright = format('\x1b[94m', '\x1b[39m');
-export const magentaBright = format('\x1b[95m', '\x1b[39m');
-export const cyanBright = format('\x1b[96m', '\x1b[39m');
-export const whiteBright = format('\x1b[97m', '\x1b[39m');
+export const redBright = format('\u001B[91m', '\u001B[39m');
+export const greenBright = format('\u001B[92m', '\u001B[39m');
+export const yellowBright = format('\u001B[93m', '\u001B[39m');
+export const blueBright = format('\u001B[94m', '\u001B[39m');
+export const magentaBright = format('\u001B[95m', '\u001B[39m');
+export const cyanBright = format('\u001B[96m', '\u001B[39m');
+export const whiteBright = format('\u001B[97m', '\u001B[39m');
 
-export const bgRedBright = format('\x1b[101m', '\x1b[49m');
-export const bgGreenBright = format('\x1b[102m', '\x1b[49m');
-export const bgYellowBright = format('\x1b[103m', '\x1b[49m');
-export const bgBlueBright = format('\x1b[104m', '\x1b[49m');
-export const bgMagentaBright = format('\x1b[105m', '\x1b[49m');
-export const bgCyanBright = format('\x1b[106m', '\x1b[49m');
-export const bgWhiteBright = format('\x1b[107m', '\x1b[49m');
+export const bgRedBright = format('\u001B[101m', '\u001B[49m');
+export const bgGreenBright = format('\u001B[102m', '\u001B[49m');
+export const bgYellowBright = format('\u001B[103m', '\u001B[49m');
+export const bgBlueBright = format('\u001B[104m', '\u001B[49m');
+export const bgMagentaBright = format('\u001B[105m', '\u001B[49m');
+export const bgCyanBright = format('\u001B[106m', '\u001B[49m');
+export const bgWhiteBright = format('\u001B[107m', '\u001B[49m');
