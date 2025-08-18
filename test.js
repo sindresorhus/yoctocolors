@@ -62,8 +62,8 @@ test('Nested colors are handled properly', t => {
 	const redText = colors.red(`Error: ${colors.yellow('Warning')} continues in red`);
 	t.is(redText, '\u001B[31mError: \u001B[33mWarning\u001B[31m continues in red\u001B[39m');
 
-	const boldDimText = `Hello ${colors.dim("world")}, ${colors.bold(`are ${colors.dim("you")} ok`)}?`;
-	t.is(boldDimText, 'Hello \x1B[2mworld\x1B[22m, \x1B[1mare \x1B[2myou\x1B[22m\x1B[1m ok\x1B[22m?');
+	const boldDimText = `Hello ${colors.dim('world')}, ${colors.bold(`are ${colors.dim('you')} ok`)}?`;
+	t.is(boldDimText, 'Hello \u001B[2mworld\u001B[22m, \u001B[1mare \u001B[2myou\u001B[22m\u001B[1m ok\u001B[22m?');
 });
 
 test('Default export', t => {

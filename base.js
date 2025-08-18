@@ -29,7 +29,7 @@ const format = (open, close, useReplace) => {
 
 		let result = openCode;
 		let lastIndex = 0;
-		let replaceCode = (useReplace ? closeCode : '') + openCode;
+		const replaceCode = (useReplace ? closeCode : '') + openCode;
 
 		while (index !== -1) {
 			result += string.slice(lastIndex, index) + replaceCode;
