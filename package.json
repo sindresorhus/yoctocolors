@@ -1,6 +1,6 @@
 {
 	"name": "yoctocolors",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "The smallest and fastest command-line coloring package on the internet",
 	"license": "MIT",
 	"repository": "sindresorhus/yoctocolors",
