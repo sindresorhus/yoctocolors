@@ -5,7 +5,7 @@ import tty from 'node:tty';
 // Lots of optionals here to support Deno.
 const hasColors = tty?.WriteStream?.prototype?.hasColors?.() ?? false;
 
-const format = (open, close, useReplace) => {
+const format = (open, close) => {
 	if (!hasColors) {
 		return input => input;
 	}
@@ -25,11 +25,15 @@ const format = (open, close, useReplace) => {
 		// Handle nested colors.
 
 		// We could have done this, but it's too slow (as of Node.js 22).
-		// return openCode + string.replaceAll(closeCode, (useReplace ? closeCode : '') + openCode) + closeCode;
+		// return openCode + string.replaceAll(closeCode, (close === 22 ? closeCode : '') + openCode) + closeCode;
 
 		let result = openCode;
 		let lastIndex = 0;
-		const replaceCode = (useReplace ? closeCode : '') + openCode;
+
+		// SGR 22 resets both bold (1) and dim (2). When we encounter a nested
+		// close for styles that use 22, we need to re-open the outer style.
+		const reopenOnNestedClose = close === 22;
+		const replaceCode = (reopenOnNestedClose ? closeCode : '') + openCode;
 
 		while (index !== -1) {
 			result += string.slice(lastIndex, index) + replaceCode;
@@ -44,8 +48,8 @@ const format = (open, close, useReplace) => {
 };
 
 export const reset = format(0, 0);
-export const bold = format(1, 22, true);
-export const dim = format(2, 22, true);
+export const bold = format(1, 22);
+export const dim = format(2, 22);
 export const italic = format(3, 23);
 export const underline = format(4, 24);
 export const overline = format(53, 55);

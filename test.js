@@ -61,9 +61,67 @@ test('Is noop when no colors are supported', async t => {
 test('Nested colors are handled properly', t => {
 	const redText = colors.red(`Error: ${colors.yellow('Warning')} continues in red`);
 	t.is(redText, '\u001B[31mError: \u001B[33mWarning\u001B[31m continues in red\u001B[39m');
+});
 
+test('Nested dim inside bold is handled properly', t => {
 	const boldDimText = `Hello ${colors.dim('world')}, ${colors.bold(`are ${colors.dim('you')} ok`)}?`;
 	t.is(boldDimText, 'Hello \u001B[2mworld\u001B[22m, \u001B[1mare \u001B[2myou\u001B[22m\u001B[1m ok\u001B[22m?');
+});
+
+test('Nested bold inside dim is handled properly', t => {
+	const dimBoldText = colors.dim(`outer ${colors.bold('inner')} rest`);
+	t.is(dimBoldText, '\u001B[2mouter \u001B[1minner\u001B[22m\u001B[2m rest\u001B[22m');
+});
+
+test('Bold with multiple dim segments', t => {
+	const result = colors.bold(`a ${colors.dim('b')} c ${colors.dim('d')} e`);
+	t.is(result, '\u001B[1ma \u001B[2mb\u001B[22m\u001B[1m c \u001B[2md\u001B[22m\u001B[1m e\u001B[22m');
+});
+
+test('Self-nesting with bold', t => {
+	const result = colors.bold(colors.bold('x'));
+	t.is(result, '\u001B[1m\u001B[1mx\u001B[22m\u001B[1m\u001B[22m');
+});
+
+test('Self-nesting with dim', t => {
+	const result = colors.dim(colors.dim('x'));
+	t.is(result, '\u001B[2m\u001B[2mx\u001B[22m\u001B[2m\u001B[22m');
+});
+
+test('Same-style nesting for red', t => {
+	const result = colors.red(`a ${colors.red('b')} c`);
+	t.is(result, '\u001B[31ma \u001B[31mb\u001B[31m c\u001B[39m');
+});
+
+test('Foreground red with inner background blue', t => {
+	const result = colors.red(`a ${colors.bgBlue('b')} c`);
+	t.is(result, '\u001B[31ma \u001B[44mb\u001B[49m c\u001B[39m');
+});
+
+test('Background blue with inner foreground red', t => {
+	const result = colors.bgBlue(`a ${colors.red('b')} c`);
+	t.is(result, '\u001B[44ma \u001B[31mb\u001B[39m c\u001B[49m');
+});
+
+test('Literal close sequence inside input (bold)', t => {
+	const result = colors.bold(`x${'\u001B[22m'}y`);
+	t.is(result, '\u001B[1mx\u001B[22m\u001B[1my\u001B[22m');
+});
+
+test('Literal close sequence inside input (red)', t => {
+	const result = colors.red(`x${'\u001B[39m'}y`);
+	t.is(result, '\u001B[31mx\u001B[31my\u001B[39m');
+});
+
+test('Non-string coercion', t => {
+	// Number coercion
+	t.is(colors.red(123), '\u001B[31m123\u001B[39m');
+	// ToString coercion
+	t.is(colors.bold({toString: () => 'x'}), '\u001B[1mx\u001B[22m');
+});
+
+test('Empty string handling', t => {
+	t.is(colors.red(''), '\u001B[31m\u001B[39m');
 });
 
 test('Default export', t => {
