@@ -5,7 +5,7 @@ import tty from 'node:tty';
 // Lots of optionals here to support Deno.
 const hasColors = tty?.WriteStream?.prototype?.hasColors?.() ?? false;
 
-const format = (open, close) => {
+const format = (open, close, useReplace) => {
 	if (!hasColors) {
 		return input => input;
 	}
@@ -25,13 +25,14 @@ const format = (open, close) => {
 		// Handle nested colors.
 
 		// We could have done this, but it's too slow (as of Node.js 22).
-		// return openCode + string.replaceAll(closeCode, openCode) + closeCode;
+		// return openCode + string.replaceAll(closeCode, (useReplace ? closeCode : '') + openCode) + closeCode;
 
 		let result = openCode;
 		let lastIndex = 0;
+		const replaceCode = (useReplace ? closeCode : '') + openCode;
 
 		while (index !== -1) {
-			result += string.slice(lastIndex, index) + openCode;
+			result += string.slice(lastIndex, index) + replaceCode;
 			lastIndex = index + closeCode.length;
 			index = string.indexOf(closeCode, lastIndex);
 		}
@@ -43,8 +44,8 @@ const format = (open, close) => {
 };
 
 export const reset = format(0, 0);
-export const bold = format(1, 22);
-export const dim = format(2, 22);
+export const bold = format(1, 22, true);
+export const dim = format(2, 22, true);
 export const italic = format(3, 23);
 export const underline = format(4, 24);
 export const overline = format(53, 55);
