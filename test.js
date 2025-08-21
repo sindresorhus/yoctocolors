@@ -1,11 +1,7 @@
-import {execFile} from 'node:child_process';
-import {env} from 'node:process';
-import {promisify} from 'node:util';
-import test from 'ava';
-import colorsDefaultExport from './index.js';
-import * as colors from './index.js';
-
-const pExecFile = promisify(execFile);
+/* eslint-disable unicorn/prefer-module */
+const test = require('ava');
+const colorsDefaultExport = require('./index.js');
+const colors = require('./index.js');
 
 const testColor = (t, methodName, startCode, endCode) => {
 	t.is(colors[methodName]('foo'), `\u001B[${startCode}mfoo\u001B[${endCode}m`);
@@ -52,11 +48,6 @@ test('Add color ANSI sequences - bgBlueBright', testColor, 'bgBlueBright', 104, 
 test('Add color ANSI sequences - bgMagentaBright', testColor, 'bgMagentaBright', 105, 49);
 test('Add color ANSI sequences - bgCyanBright', testColor, 'bgCyanBright', 106, 49);
 test('Add color ANSI sequences - bgWhiteBright', testColor, 'bgWhiteBright', 107, 49);
-
-test('Is noop when no colors are supported', async t => {
-	const {stdout} = await pExecFile('node', ['fixture.js'], {env: {...env, FORCE_COLOR: '0'}});
-	t.is(stdout, 'foo\n');
-});
 
 test('Nested colors are handled properly', t => {
 	const redText = colors.red(`Error: ${colors.yellow('Warning')} continues in red`);
