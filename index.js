@@ -30,16 +30,16 @@ const format = (open, close) => {
 		let result = openCode;
 		let lastIndex = 0;
 
-    // SGR 22 resets both bold (1) and dim (2). When we encounter a nested
-    // close for styles that use 22, we need to re-open the outer style.
-    const reopenOnNestedClose = close === 22;
-    const replaceCode = (reopenOnNestedClose ? closeCode : '') + openCode;
+		// SGR 22 resets both bold (1) and dim (2). When we encounter a nested
+		// close for styles that use 22, we need to re-open the outer style.
+		const reopenOnNestedClose = close === 22;
+		const replaceCode = (reopenOnNestedClose ? closeCode : '') + openCode;
 
-    while (index !== -1) {
-      result += string.slice(lastIndex, index) + replaceCode;
-      lastIndex = index + closeCode.length;
-      index = string.indexOf(closeCode, lastIndex);
-    }
+		while (index !== -1) {
+			result += string.slice(lastIndex, index) + replaceCode;
+			lastIndex = index + closeCode.length;
+			index = string.indexOf(closeCode, lastIndex);
+		}
 
 		result += string.slice(lastIndex) + closeCode;
 
