@@ -1,4 +1,4 @@
-const tty = require('node:tty');
+const tty = require('node:tty'); // eslint-disable-line unicorn/prefer-module
 
 // eslint-disable-next-line no-warning-comments
 // TODO: Use a better method when it's added to Node.js (https://github.com/nodejs/node/pull/40240)
@@ -30,8 +30,13 @@ const format = (open, close) => {
 		let result = openCode;
 		let lastIndex = 0;
 
+		// SGR 22 resets both bold (1) and dim (2). When we encounter a nested
+		// close for styles that use 22, we need to re-open the outer style.
+		const reopenOnNestedClose = close === 22;
+		const replaceCode = (reopenOnNestedClose ? closeCode : '') + openCode;
+
 		while (index !== -1) {
-			result += string.slice(lastIndex, index) + openCode;
+			result += string.slice(lastIndex, index) + replaceCode;
 			lastIndex = index + closeCode.length;
 			index = string.indexOf(closeCode, lastIndex);
 		}
@@ -90,4 +95,4 @@ colors.bgMagentaBright = format(105, 49);
 colors.bgCyanBright = format(106, 49);
 colors.bgWhiteBright = format(107, 49);
 
-module.exports = colors;
+module.exports = colors; // eslint-disable-line unicorn/prefer-module
