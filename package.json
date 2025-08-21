@@ -1,6 +1,6 @@
 {
 	"name": "yoctocolors-cjs",
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"description": "CommonJS version - The smallest and fastest command-line coloring package on the internet",
 	"license": "MIT",
 	"repository": "sindresorhus/yoctocolors",
