@@ -1,4 +1,4 @@
-const tty = require('node:tty');
+const tty = require('node:tty'); // eslint-disable-line unicorn/prefer-module
 
 // eslint-disable-next-line no-warning-comments
 // TODO: Use a better method when it's added to Node.js (https://github.com/nodejs/node/pull/40240)
@@ -95,4 +95,4 @@ colors.bgMagentaBright = format(105, 49);
 colors.bgCyanBright = format(106, 49);
 colors.bgWhiteBright = format(107, 49);
 
-module.exports = colors;
+module.exports = colors; // eslint-disable-line unicorn/prefer-module
