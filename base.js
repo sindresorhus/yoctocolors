@@ -52,6 +52,11 @@ export const bold = format(1, 22);
 export const dim = format(2, 22);
 export const italic = format(3, 23);
 export const underline = format(4, 24);
+// Extended underline styles (`SGR 4:x` sub-parameters).
+export const underlineDouble = format('4:2', 24);
+export const underlineCurly = format('4:3', 24);
+export const underlineDotted = format('4:4', 24);
+export const underlineDashed = format('4:5', 24);
 export const overline = format(53, 55);
 export const inverse = format(7, 27);
 export const hidden = format(8, 28);
@@ -92,3 +97,22 @@ export const bgBlueBright = format(104, 49);
 export const bgMagentaBright = format(105, 49);
 export const bgCyanBright = format(106, 49);
 export const bgWhiteBright = format(107, 49);
+
+// Underline color (`SGR 58`/`59`). It has no basic 16-color form, so the palette index is used.
+export const underlineBlack = format('58;5;0', 59);
+export const underlineRed = format('58;5;1', 59);
+export const underlineGreen = format('58;5;2', 59);
+export const underlineYellow = format('58;5;3', 59);
+export const underlineBlue = format('58;5;4', 59);
+export const underlineMagenta = format('58;5;5', 59);
+export const underlineCyan = format('58;5;6', 59);
+export const underlineWhite = format('58;5;7', 59);
+export const underlineGray = format('58;5;8', 59);
+
+export const underlineRedBright = format('58;5;9', 59);
+export const underlineGreenBright = format('58;5;10', 59);
+export const underlineYellowBright = format('58;5;11', 59);
+export const underlineBlueBright = format('58;5;12', 59);
+export const underlineMagentaBright = format('58;5;13', 59);
+export const underlineCyanBright = format('58;5;14', 59);
+export const underlineWhiteBright = format('58;5;15', 59);

@@ -57,8 +57,12 @@ console.log(blue(`Welcome to the ${green('yoctocolors')} package!`));
 - `bold` - Make the text bold.
 - `dim` - Make the text have lower opacity.
 - `italic` - Make the text italic. *(Not widely supported)*
-- `underline` - Put a horizontal line above the text. *(Not widely supported)*
-- `overline` - Put a horizontal line below the text. *(Not widely supported)*
+- `underline` - Put a horizontal line below the text. *(Not widely supported)*
+- `underlineDouble` - Put a double horizontal line below the text. *(Not widely supported)*
+- `underlineCurly` - Put a curly horizontal line below the text. *(Not widely supported)*
+- `underlineDotted` - Put a dotted horizontal line below the text. *(Not widely supported)*
+- `underlineDashed` - Put a dashed horizontal line below the text. *(Not widely supported)*
+- `overline` - Put a horizontal line above the text. *(Not widely supported)*
 - `inverse`- Invert background and foreground colors.
 - `hidden` - Print the text but make it invisible.
 - `strikethrough` - Put a horizontal line through the center of the text. *(Not widely supported)*
@@ -100,6 +104,27 @@ console.log(blue(`Welcome to the ${green('yoctocolors')} package!`));
 - `bgMagentaBright`
 - `bgCyanBright`
 - `bgWhiteBright`
+
+### Underline colors
+
+The underline color is set independently of the text color, so the color is only visible when an underline style is also applied. For example, `underlineRed(underlineCurly('typo'))` renders a red squiggle below otherwise unstyled text. *(Not widely supported)*
+
+- `underlineBlack`
+- `underlineRed`
+- `underlineGreen`
+- `underlineYellow`
+- `underlineBlue`
+- `underlineMagenta`
+- `underlineCyan`
+- `underlineWhite`
+- `underlineGray`
+- `underlineRedBright`
+- `underlineGreenBright`
+- `underlineYellowBright`
+- `underlineBlueBright`
+- `underlineMagentaBright`
+- `underlineCyanBright`
+- `underlineWhiteBright`
 
 ## Prior art
 

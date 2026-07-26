@@ -16,6 +16,10 @@ test('Add color ANSI sequences - bold', testColor, 'bold', 1, 22);
 test('Add color ANSI sequences - dim', testColor, 'dim', 2, 22);
 test('Add color ANSI sequences - italic', testColor, 'italic', 3, 23);
 test('Add color ANSI sequences - underline', testColor, 'underline', 4, 24);
+test('Add color ANSI sequences - underlineDouble', testColor, 'underlineDouble', '4:2', 24);
+test('Add color ANSI sequences - underlineCurly', testColor, 'underlineCurly', '4:3', 24);
+test('Add color ANSI sequences - underlineDotted', testColor, 'underlineDotted', '4:4', 24);
+test('Add color ANSI sequences - underlineDashed', testColor, 'underlineDashed', '4:5', 24);
 test('Add color ANSI sequences - overline', testColor, 'overline', 53, 55);
 test('Add color ANSI sequences - inverse', testColor, 'inverse', 7, 27);
 test('Add color ANSI sequences - hidden', testColor, 'hidden', 8, 28);
@@ -52,6 +56,22 @@ test('Add color ANSI sequences - bgBlueBright', testColor, 'bgBlueBright', 104, 
 test('Add color ANSI sequences - bgMagentaBright', testColor, 'bgMagentaBright', 105, 49);
 test('Add color ANSI sequences - bgCyanBright', testColor, 'bgCyanBright', 106, 49);
 test('Add color ANSI sequences - bgWhiteBright', testColor, 'bgWhiteBright', 107, 49);
+test('Add color ANSI sequences - underlineBlack', testColor, 'underlineBlack', '58;5;0', 59);
+test('Add color ANSI sequences - underlineRed', testColor, 'underlineRed', '58;5;1', 59);
+test('Add color ANSI sequences - underlineGreen', testColor, 'underlineGreen', '58;5;2', 59);
+test('Add color ANSI sequences - underlineYellow', testColor, 'underlineYellow', '58;5;3', 59);
+test('Add color ANSI sequences - underlineBlue', testColor, 'underlineBlue', '58;5;4', 59);
+test('Add color ANSI sequences - underlineMagenta', testColor, 'underlineMagenta', '58;5;5', 59);
+test('Add color ANSI sequences - underlineCyan', testColor, 'underlineCyan', '58;5;6', 59);
+test('Add color ANSI sequences - underlineWhite', testColor, 'underlineWhite', '58;5;7', 59);
+test('Add color ANSI sequences - underlineGray', testColor, 'underlineGray', '58;5;8', 59);
+test('Add color ANSI sequences - underlineRedBright', testColor, 'underlineRedBright', '58;5;9', 59);
+test('Add color ANSI sequences - underlineGreenBright', testColor, 'underlineGreenBright', '58;5;10', 59);
+test('Add color ANSI sequences - underlineYellowBright', testColor, 'underlineYellowBright', '58;5;11', 59);
+test('Add color ANSI sequences - underlineBlueBright', testColor, 'underlineBlueBright', '58;5;12', 59);
+test('Add color ANSI sequences - underlineMagentaBright', testColor, 'underlineMagentaBright', '58;5;13', 59);
+test('Add color ANSI sequences - underlineCyanBright', testColor, 'underlineCyanBright', '58;5;14', 59);
+test('Add color ANSI sequences - underlineWhiteBright', testColor, 'underlineWhiteBright', '58;5;15', 59);
 
 test('Is noop when no colors are supported', async t => {
 	const {stdout} = await pExecFile('node', ['fixture.js'], {env: {...env, FORCE_COLOR: '0'}});
@@ -101,6 +121,17 @@ test('Foreground red with inner background blue', t => {
 test('Background blue with inner foreground red', t => {
 	const result = colors.bgBlue(`a ${colors.red('b')} c`);
 	t.is(result, '\u001B[44ma \u001B[31mb\u001B[39m c\u001B[49m');
+});
+
+test('Nested underline styles are handled properly', t => {
+	// All underline styles share close code 24, so the outer style has to be re-opened.
+	const result = colors.underline(`a ${colors.underlineCurly('b')} c`);
+	t.is(result, '\u001B[4ma \u001B[4:3mb\u001B[4m c\u001B[24m');
+});
+
+test('Underline color nests independently of the underline style', t => {
+	const result = colors.underlineRed(colors.underlineCurly('typo'));
+	t.is(result, '\u001B[58;5;1m\u001B[4:3mtypo\u001B[24m\u001B[59m');
 });
 
 test('Literal close sequence inside input (bold)', t => {
